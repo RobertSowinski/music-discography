@@ -10,6 +10,7 @@ export default function Home() {
   const [artistsList, setArtistsList] = useState([]);
   const [albumsList, setAlbumsList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetch("/api/songs")
@@ -42,7 +43,6 @@ export default function Home() {
       const newSong = await res.json();
       if (res.ok) {
         setSongsList((prev) => [...prev, newSong]);
-        // Refresh all data to sync artists and albums
         fetch("/api/songs")
           .then((res) => res.json())
           .then((data) => {
@@ -55,6 +55,12 @@ export default function Home() {
     } catch (error) {
       console.error("Error adding song:", error);
       alert("Error adding song");
+    }
+  };
+
+  const handleSearch = (e) => {
+    if (e.type === "click" || (e.type === "keypress" && e.key === "Enter")) {
+      setSearchTerm(e.target.value || "");
     }
   };
 
@@ -74,8 +80,10 @@ export default function Home() {
               type="text"
               placeholder="Search songs..."
               className={styles.searchInput}
+              onKeyPress={handleSearch}
+              onChange={(e) => setSearchTerm(e.target.value)} // Update search term live
             />
-            <button className={styles.searchButton}>
+            <button className={styles.searchButton} onClick={handleSearch}>
               <span className={styles.searchIcon}>🔍</span>
             </button>
           </div>
@@ -84,7 +92,11 @@ export default function Home() {
       <div className={styles.contentContainer}>
         <div className={styles.cardsContainer}>
           {songsList.map((song) => (
-            <SongCard key={song.id} song={song} />
+            <SongCard
+              key={song.id}
+              song={song}
+              isVisible={searchTerm ? song.title.toLowerCase().includes(searchTerm.toLowerCase()) : true}
+            />
           ))}
           <LastSongCard onAddSong={handleAddSong} />
         </div>

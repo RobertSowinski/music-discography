@@ -4,7 +4,7 @@ import { faMusic, faTimes } from "@fortawesome/free-solid-svg-icons";
 import styles from "./SongCard.module.css";
 
 // Reusable component for displaying song details
-export default function SongCard({ song }) {
+export default function SongCard({ song, isVisible }) {
   const isArtistUnknown = song.artist === "Unknown";
   const isAlbumUnknown = song.album === "Unknown";
 
@@ -17,7 +17,7 @@ export default function SongCard({ song }) {
           body: JSON.stringify({ id: song.id }),
         });
         if (res.ok) {
-          window.location.reload(); // Refresh to update state (simpler approach)
+          window.location.reload(); // Refresh to update state
         } else {
           alert("Failed to delete song");
         }
@@ -29,7 +29,7 @@ export default function SongCard({ song }) {
   };
 
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${!isVisible ? styles.hidden : ""}`}>
       <h3 className={styles.title}>{song.title}</h3>
       <div className={styles.imageContainer}>
         <FontAwesomeIcon icon={faMusic} className={styles.image} />
