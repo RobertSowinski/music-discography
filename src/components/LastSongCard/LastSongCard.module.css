@@ -1,0 +1,63 @@
+.card {
+  width: 355px;
+  height: 539px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.7rem;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.form {
+  flex: 3; /* Match imageContainer flex in SongCard */
+  background: none;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.input {
+  padding: 17.3px;
+  font-size: 2.3rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #444;
+  color: #fff;
+}
+
+.input::placeholder {
+  color: #fff;
+}
+
+.input:not(:first-child) {
+  margin-top: 10px;
+}
+
+.button {
+  padding: 25px;
+  background: none;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 35px;
+  width: 50%;
+  align-self: center;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  color: #fff;
+}

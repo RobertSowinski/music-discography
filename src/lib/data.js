@@ -1,27 +1,124 @@
-// Static database for music discography
-const musicDatabase = {
-  artists: [
-    { id: 1, name: "The Beatles", genre: "Rock" },
-    { id: 2, name: "Beyoncé", genre: "Pop" },
-    { id: 3, name: "Miles Davis", genre: "Jazz" },
-  ],
-  albums: [
-    { id: 1, artistId: 1, title: "Abbey Road", year: 1969 },
-    { id: 2, artistId: 1, title: "Sgt. Pepper's Lonely Hearts Club Band", year: 1967 },
-    { id: 3, artistId: 2, title: "Lemonade", year: 2016 },
-    { id: 4, artistId: 3, title: "Kind of Blue", year: 1959 },
-  ],
-  tracks: [
-    { id: 1, albumId: 1, title: "Come Together", duration: "4:19" },
-    { id: 2, albumId: 1, title: "Something", duration: "3:02" },
-    { id: 3, albumId: 3, title: "Formation", duration: "3:26" },
-    { id: 4, albumId: 4, title: "So What", duration: "9:22" },
-  ],
-};
+// Static database for artists, albums, and songs
+const artists = [
+  { id: 1, name: "Pendulum" },
+  { id: 2, name: "Tom Odell" },
+  { id: 3, name: "Green Day" },
+  { id: 4, name: "Red Hot Chili Peppers" },
+  { id: 5, name: "Ed Sheeran" },
+  { id: 6, name: "Bruno Mars" },
+  { id: 7, name: "Ado" },
+  { id: 8, name: "U2" },
+];
 
-// Functions to retrieve data
-export const getArtists = () => musicDatabase.artists;
-export const getAlbumsByArtistId = (artistId) =>
-  musicDatabase.albums.filter((album) => album.artistId === parseInt(artistId));
-export const getTracksByAlbumId = (albumId) =>
-  musicDatabase.tracks.filter((track) => track.albumId === parseInt(albumId));
+const albums = [
+  { id: 1, name: "American Idiot", artistId: 3 },
+  { id: 2, name: "Stadium Arcadium", artistId: 4 },
+  { id: 3, name: "X", artistId: 5 },
+  { id: 4, name: "Doo-Wops & Hooligans", artistId: 6 },
+  { id: 5, name: "Kyougen", artistId: 7 },
+];
+
+const songs = [
+  {
+    id: 1,
+    title: "Witchcraft",
+    artistId: 1,
+    artist: "Pendulum",
+    albumId: null,
+    album: "Unknown",
+    info: "song name is Witchcraft created by Pendulum",
+  },
+  {
+    id: 2,
+    title: "Another Love",
+    artistId: 2,
+    artist: "Tom Odell",
+    albumId: null,
+    album: "Unknown",
+    info: "song name is Another Love created by Tom Odell",
+  },
+  {
+    id: 3,
+    title: "Fairytale Gone Bad",
+    artistId: null,
+    artist: "Unknown",
+    albumId: null,
+    album: "Unknown",
+    info: "song name is Fairytale Gone Bad created by Unknown",
+  },
+  {
+    id: 4,
+    title: "American Idiot",
+    artistId: 3,
+    artist: "Green Day",
+    albumId: 1,
+    album: "American Idiot",
+    info: "American Idiot",
+  },
+  {
+    id: 5,
+    title: "Tell Me Baby",
+    artistId: 4,
+    artist: "Red Hot Chili Peppers",
+    albumId: 2,
+    album: "Stadium Arcadium",
+    info: "Stadium Arcadium",
+  },
+  {
+    id: 6,
+    title: "One",
+    artistId: 5,
+    artist: "Ed Sheeran",
+    albumId: 3,
+    album: "X",
+    info: "X",
+  },
+  {
+    id: 7,
+    title: "Talking To The Moon",
+    artistId: 6,
+    artist: "Bruno Mars",
+    albumId: 4,
+    album: "Doo-Wops & Hooligans",
+    info: "Doo-Wops & Hooligans",
+  },
+  {
+    id: 8,
+    title: "Usseewa",
+    artistId: 7,
+    artist: "Ado",
+    albumId: 5,
+    album: "Kyougen",
+    info: "Kyougen",
+  },
+  {
+    id: 9,
+    title: "Ordinary Love",
+    artistId: 8,
+    artist: "U2",
+    albumId: null,
+    album: "Unknown",
+    info: "song name is Ordinary Love created by U2",
+  },
+  {
+    id: 10,
+    title: "The Reason",
+    artistId: null,
+    artist: "Unknown",
+    albumId: null,
+    album: "Unknown",
+    info: "song name is The Reason created by Unknown",
+  },
+];
+
+export function getArtists() {
+  return artists;
+}
+
+export function getAlbums() {
+  return albums;
+}
+
+export function getSongs() {
+  return songs;
+}

@@ -2,4 +2,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  padding: 20px;
+}
+
+.panel {
+  width: 200px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
 }

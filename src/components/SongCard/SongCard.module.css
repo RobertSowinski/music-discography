@@ -1,0 +1,103 @@
+.card {
+  width: 355px;
+  height: 539px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.7rem;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.imageContainer {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #444;
+}
+
+.image {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.flexItem {
+  flex: 1;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff; /* White text */
+  text-transform: uppercase; /* Uppercase text */
+  background-color: #ff0000; /* Default red for disabled */
+  padding: 15px;
+  border-radius: 45%; /* Increased to 45% for more roundness */
+  border: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.link.active {
+  background-color: #90ee90; /* Light green for active (existing artist/album) */
+}
+
+.link.disabled {
+  background-color: #ff0000; /* Red for disabled (unknown artist/album) */
+}
+
+.showInfoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.showInfo {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff; /* White text */
+  text-transform: uppercase; /* Uppercase text */
+  background-color: #90ee90; /* Light green background */
+  padding: 15px;
+  border-radius: 45%; /* Increased to 45% for more roundness */
+  margin: 10px 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+}
