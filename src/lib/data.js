@@ -1,5 +1,5 @@
-// Static database for artists, albums, and songs
-const artists = [
+// Static initial data for artists, albums, and songs
+export const artists = [
   { id: 1, name: "Pendulum" },
   { id: 2, name: "Tom Odell" },
   { id: 3, name: "Green Day" },
@@ -10,7 +10,7 @@ const artists = [
   { id: 8, name: "U2" },
 ];
 
-const albums = [
+export const albums = [
   { id: 1, name: "American Idiot", artistId: 3 },
   { id: 2, name: "Stadium Arcadium", artistId: 4 },
   { id: 3, name: "X", artistId: 5 },
@@ -18,7 +18,7 @@ const albums = [
   { id: 5, name: "Kyougen", artistId: 7 },
 ];
 
-const songs = [
+export const songs = [
   {
     id: 1,
     title: "Witchcraft",

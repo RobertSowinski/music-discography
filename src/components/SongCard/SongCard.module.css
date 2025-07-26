@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  position: relative; /* For absolute positioning of delete button */
 }
 
 .title {
@@ -60,11 +61,11 @@
 .link {
   display: inline-block;
   text-decoration: none;
-  color: #fff; /* White text */
-  text-transform: uppercase; /* Uppercase text */
-  background-color: #ff0000; /* Default red for disabled */
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #ff0000;
   padding: 15px;
-  border-radius: 45%; /* Increased to 45% for more roundness */
+  border-radius: 45%;
   border: none;
   font-size: 1.3rem;
   font-weight: bold;
@@ -72,11 +73,11 @@
 }
 
 .link.active {
-  background-color: #90ee90; /* Light green for active (existing artist/album) */
+  background-color: #90ee90;
 }
 
 .link.disabled {
-  background-color: #ff0000; /* Red for disabled (unknown artist/album) */
+  background-color: #ff0000;
 }
 
 .showInfoContainer {
@@ -89,15 +90,33 @@
 .showInfo {
   display: inline-block;
   text-decoration: none;
-  color: #fff; /* White text */
-  text-transform: uppercase; /* Uppercase text */
-  background-color: #90ee90; /* Light green background */
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #90ee90;
   padding: 15px;
-  border-radius: 45%; /* Increased to 45% for more roundness */
+  border-radius: 45%;
   margin: 10px 0;
   font-size: 1.3rem;
   font-weight: bold;
   box-sizing: border-box;
   cursor: pointer;
   border: none;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: #ff0000;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
