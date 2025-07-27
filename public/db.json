@@ -1,24 +1,6 @@
 {
   "songs": [
     {
-      "id": 1,
-      "title": "Witchcraft",
-      "artistId": 1,
-      "artist": "Pendulum",
-      "albumId": null,
-      "album": "Unknown",
-      "info": "song name is Witchcraft created by Pendulum"
-    },
-    {
-      "id": 2,
-      "title": "Another Love",
-      "artistId": 2,
-      "artist": "Tom Odell",
-      "albumId": null,
-      "album": "Unknown",
-      "info": "song name is Another Love created by Tom Odell"
-    },
-    {
       "id": 3,
       "title": "Fairytale Gone Bad",
       "artistId": null,
@@ -55,15 +37,6 @@
       "info": "X"
     },
     {
-      "id": 7,
-      "title": "Talking To The Moon",
-      "artistId": 6,
-      "artist": "Bruno Mars",
-      "albumId": 4,
-      "album": "Doo-Wops & Hooligans",
-      "info": "Doo-Wops & Hooligans"
-    },
-    {
       "id": 8,
       "title": "Usseewa",
       "artistId": 7,
@@ -89,17 +62,18 @@
       "albumId": null,
       "album": "Unknown",
       "info": "song name is The Reason created by Unknown"
+    },
+    {
+      "id": 1753559385022,
+      "title": "Don't",
+      "artistId": 5,
+      "artist": "Ed Sheeran",
+      "albumId": 3,
+      "album": "X",
+      "info": ""
     }
   ],
   "artists": [
-    {
-      "id": 1,
-      "name": "Pendulum"
-    },
-    {
-      "id": 2,
-      "name": "Tom Odell"
-    },
     {
       "id": 3,
       "name": "Green Day"
@@ -111,10 +85,6 @@
     {
       "id": 5,
       "name": "Ed Sheeran"
-    },
-    {
-      "id": 6,
-      "name": "Bruno Mars"
     },
     {
       "id": 7,
@@ -140,11 +110,6 @@
       "id": 3,
       "name": "X",
       "artistId": 5
-    },
-    {
-      "id": 4,
-      "name": "Doo-Wops & Hooligans",
-      "artistId": 6
     },
     {
       "id": 5,

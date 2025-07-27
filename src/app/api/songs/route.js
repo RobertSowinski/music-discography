@@ -72,27 +72,36 @@ export async function POST(req) {
 }
 
 export async function DELETE(req) {
-  const { id } = await req.json();
-  const songToDelete = db.songs.find(s => s.id === id);
-  if (!songToDelete) {
-    return NextResponse.json({ error: "Song not found" }, { status: 404 });
+  const { id, isArtist } = await req.json();
+  if (isArtist) {
+    const artist = db.artists.find(a => a.id === id);
+    if (!artist) {
+      return NextResponse.json({ error: "Artist not found" }, { status: 404 });
+    }
+    // Delete all songs by this artist
+    db.songs = db.songs.filter(s => s.artistId !== id);
+    // Delete the artist
+    db.artists = db.artists.filter(a => a.id !== id);
+    // Check and delete albums with no remaining songs
+    db.albums = db.albums.filter(album => {
+      const albumSongs = db.songs.filter(s => s.albumId === album.id);
+      return albumSongs.length > 0;
+    });
+  } else {
+    const songToDelete = db.songs.find(s => s.id === id);
+    if (!songToDelete) {
+      return NextResponse.json({ error: "Song not found" }, { status: 404 });
+    }
+    db.songs = db.songs.filter(s => s.id !== id);
+    const artistSongs = db.songs.filter(s => s.artistId === songToDelete.artistId);
+    if (artistSongs.length === 0 && songToDelete.artistId) {
+      db.artists = db.artists.filter(a => a.id !== songToDelete.artistId);
+    }
+    const albumSongs = db.songs.filter(s => s.albumId === songToDelete.albumId);
+    if (albumSongs.length === 0 && songToDelete.albumId) {
+      db.albums = db.albums.filter(a => a.id !== songToDelete.albumId);
+    }
   }
-
-  // Remove the song
-  db.songs = db.songs.filter(s => s.id !== id);
-
-  // Check if artist should be deleted
-  const artistSongs = db.songs.filter(s => s.artistId === songToDelete.artistId);
-  if (artistSongs.length === 0 && songToDelete.artistId) {
-    db.artists = db.artists.filter(a => a.id !== songToDelete.artistId);
-  }
-
-  // Check if album should be deleted
-  const albumSongs = db.songs.filter(s => s.albumId === songToDelete.albumId);
-  if (albumSongs.length === 0 && songToDelete.albumId) {
-    db.albums = db.albums.filter(a => a.id !== songToDelete.albumId);
-  }
-
   saveDB();
-  return NextResponse.json({ message: "Song deleted" }, { status: 200 });
+  return NextResponse.json({ message: "Item deleted" }, { status: 200 });
 }
