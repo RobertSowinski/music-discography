@@ -1,8 +1,11 @@
+/* Main footer container */
 .footer {
   display: flex;
   background-color: #e8e8e8;
   max-height: 60px;
   height: 60px;
+  position: relative;
+  z-index: 1;
 }
 
 .content {
@@ -23,6 +26,48 @@
   align-items: center;
 }
 
+.infoIcon {
+  width: 27px;
+  height: 27px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s;
+  margin-left: 10px; /* Space between icon and contact */
+  display: none; /* Hidden by default above 784px */
+}
+
+.infoIcon:hover {
+  color: #90ee90;
+}
+
+.active {
+  color: #90ee90; /* Optional active state color */
+}
+
+.infoBlock {
+  position: absolute;
+  top: -75px; /* Slightly above footer */
+  right: 10px;;
+  background-color: #e8e8e8;
+  color: #333; /* Explicitly set to black */
+  padding: 10px;
+  z-index: 10;
+  display: none; /* Hidden until clicked */
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contactInfo p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  color: #333; /* Ensure text is visible */
+}
+
 .contact {
   display: flex;
   gap: 20px;
@@ -32,14 +77,34 @@
   margin: 0;
   display: flex;
   align-items: center;
+  color: #333; /* Ensure text is visible */
 }
 
 .icon {
   width: 27px;
   height: 27px;
   margin-right: 8px;
+  color: #333; /* Ensure icons are visible */
 }
 
 .copyright {
   margin: 0;
+  transition: font-size 1.5s ease;
+}
+
+@media (max-width: 784px) {
+  .copyright {
+    font-size:13px;
+  }
+  .infoIcon {
+    display: block; /* Show icon on 784px and below */
+  }
+  .contact {
+    display: none; /* Hide contact text on 784px and below */
+  }
+  .infoBlock {
+    width: 200px;
+    left:5%;
+    display: block; /* Show when toggled */
+  }
 }

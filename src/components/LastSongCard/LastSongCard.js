@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "rsuite";
 import styles from "./LastSongCard.module.css";
 
 // Component for adding a new song
@@ -30,9 +31,9 @@ export default function LastSongCard({ onAddSong }) {
         <input type="text" placeholder="Artist" className={styles.input} />
         <input type="text" placeholder="Album" className={styles.input} />
         <input type="text" placeholder="Info" className={styles.input} />
-        <button type="submit" className={styles.button}>
+        <Button type="submit" appearance="primary" className={styles.button}>
           <FontAwesomeIcon icon={faPlus} className={styles.icon} />
-        </button>
+        </Button>
       </form>
     </div>
   );
