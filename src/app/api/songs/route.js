@@ -72,21 +72,25 @@ export async function POST(req) {
 }
 
 export async function DELETE(req) {
-  const { id, isArtist } = await req.json();
+  const { id, isArtist, isAlbum } = await req.json();
   if (isArtist) {
     const artist = db.artists.find(a => a.id === id);
     if (!artist) {
       return NextResponse.json({ error: "Artist not found" }, { status: 404 });
     }
-    // Delete all songs by this artist
     db.songs = db.songs.filter(s => s.artistId !== id);
-    // Delete the artist
     db.artists = db.artists.filter(a => a.id !== id);
-    // Check and delete albums with no remaining songs
     db.albums = db.albums.filter(album => {
       const albumSongs = db.songs.filter(s => s.albumId === album.id);
       return albumSongs.length > 0;
     });
+  } else if (isAlbum) {
+    const album = db.albums.find(a => a.id === id);
+    if (!album) {
+      return NextResponse.json({ error: "Album not found" }, { status: 404 });
+    }
+    db.songs = db.songs.filter(s => s.albumId !== id);
+    db.albums = db.albums.filter(a => a.id !== id);
   } else {
     const songToDelete = db.songs.find(s => s.id === id);
     if (!songToDelete) {
