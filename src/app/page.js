@@ -81,7 +81,7 @@ export default function Home() {
               placeholder="Search songs..."
               className={styles.searchInput}
               onKeyPress={handleSearch}
-              onChange={(e) => setSearchTerm(e.target.value)} // Update search term live
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button className={styles.searchButton} onClick={handleSearch}>
               <span className={styles.searchIcon}>🔍</span>

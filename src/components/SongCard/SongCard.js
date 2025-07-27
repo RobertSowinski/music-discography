@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -17,7 +19,8 @@ export default function SongCard({ song, isVisible }) {
           body: JSON.stringify({ id: song.id }),
         });
         if (res.ok) {
-          window.location.reload(); // Refresh to update state
+          // Optionally update state instead of reload (requires parent callback)
+          window.location.reload(); // Temporary until state management is added
         } else {
           alert("Failed to delete song");
         }
@@ -36,7 +39,7 @@ export default function SongCard({ song, isVisible }) {
       </div>
       <div className={styles.links}>
         <div className={styles.buttonGroup}>
-          <div className={styles.linkGroup}> 
+          <div className={styles.linkGroup}>
             <div className={styles.flexItem}>
               <Link
                 href={isArtistUnknown ? "#" : `/artists/${song.artistId}`}
@@ -55,9 +58,9 @@ export default function SongCard({ song, isVisible }) {
             </div>
           </div>
           <div className={styles.showInfoContainer}>
-            <button className={styles.showInfo} onClick={() => window.location.href = `/songs/${song.id}`}>
+            <Link href={`/songs/${song.id}`} className={styles.showInfo}>
               Show Info
-            </button>
+            </Link>
           </div>
         </div>
       </div>
