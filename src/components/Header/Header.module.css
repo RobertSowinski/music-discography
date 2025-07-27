@@ -11,11 +11,21 @@
   display: flex;
   align-items: center;
   flex: 0 0 auto;
+  color: red;
 }
 
 .icon {
   width: 27px;
   height: 27px;
+  color: #000; /* Sets the default fill color to black */
+}
+
+.icon:hover {
+  color: #90ee90; /* Changes to green on hover */
+}
+
+.icon svg {
+  fill: currentColor; /* Ensures the SVG fill inherits the color property */
 }
 
 .links {
@@ -25,6 +35,12 @@
 }
 
 .links a {
+  font-weight: bold;
+  font-size: 1.2rem;
   text-decoration: none;
   color: #333;
+}
+
+.links a:hover {
+  color: #90ee90;
 }

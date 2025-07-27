@@ -8,7 +8,9 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.headerIcon}>
-        <FontAwesomeIcon icon={faMusic} className={styles.icon} />
+        <Link href="/">
+          <FontAwesomeIcon icon={faMusic} className={styles.icon} />
+        </Link>
       </div>
       <div className={styles.links}>
         <Link href="/">Home</Link>
